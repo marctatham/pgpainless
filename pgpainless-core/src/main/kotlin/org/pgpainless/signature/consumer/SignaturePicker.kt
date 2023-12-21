@@ -279,9 +279,6 @@ class SignaturePicker {
             referenceTime: Date
         ): PGPSignature? {
             val primaryKey = keyRing.publicKey
-            require(primaryKey.keyID != subkey.keyID) {
-                "Primary key cannot have subkey binding revocations."
-            }
             return getSortedSignaturesOfType(subkey, SignatureType.SUBKEY_REVOCATION).lastOrNull {
                 return@lastOrNull try {
                     SignatureVerifier.verifySubkeyBindingRevocation(
