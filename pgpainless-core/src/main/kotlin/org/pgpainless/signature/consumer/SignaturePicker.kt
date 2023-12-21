@@ -309,9 +309,6 @@ class SignaturePicker {
             referenceTime: Date
         ): PGPSignature? {
             val primaryKey = keyRing.publicKey
-            require(primaryKey.keyID != subkey.keyID) {
-                "Primary key cannot have subkey binding signatures."
-            }
             return getSortedSignaturesOfType(subkey, SignatureType.SUBKEY_BINDING).lastOrNull {
                 return@lastOrNull try {
                     SignatureVerifier.verifySubkeyBindingSignature(
@@ -343,9 +340,6 @@ class SignaturePicker {
             referenceTime: Date
         ): PGPSignature? {
             val primaryKey = keyRing.publicKey
-            require(primaryKey.keyID != subkey.keyID) {
-                "Primary key cannot have subkey binding signatures."
-            }
             var latest: PGPSignature? = null
             return getSortedSignaturesOfType(subkey, SignatureType.SUBKEY_BINDING).lastOrNull {
                 return@lastOrNull try {
