@@ -195,11 +195,16 @@ subprojects {
         }
     }
 
-    signing {
-        useGpgCmd()
-        required { signingRequired }
-        sign publishing.publications.mavenJava
-    }
+    // signing configuration has not changed -
+    // can revisit this if it becomes useful
+//    signing {
+//        useGpgCmd()
+//        required {
+//            println( "Signing required: " + signingRequired)
+//            signingRequired
+//        }
+//        sign publishing.publications.mavenJava
+//    }
 }
 
 def getGitCommit() {
