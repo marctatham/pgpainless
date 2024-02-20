@@ -4,7 +4,8 @@
 
 rootProject.name = 'PGPainless'
 
-include 'pgpainless-core',
-        'pgpainless-sop',
-        'pgpainless-cli'
+include 'pgpainless-core'
+// removing these modules to simplify the resulting binary, as they're all bundled together
+//        'pgpainless-sop',
+//        'pgpainless-cli'
 
